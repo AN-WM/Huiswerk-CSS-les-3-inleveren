@@ -1,0 +1,683 @@
+/*-----Index-------------------------------------
+
+1. Global Styles
+2. Typography
+    2.1 Global typography
+    2.2 Specific typography
+    2.3 Larger screen values
+3. Layout
+    3.1 Basic items
+    3.2 Floating text
+    3.3 Bevels (Schuine balken)
+    3.4 Z-indexing
+4. Areas
+    4.1 Header
+    4.2 Introduction/Hello
+    4.3 Work
+    4.4 Services
+    4.5 Contact Form
+    4.6 Footer
+------------------------------------------------------
+*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+    font-size: 16px;
+    --content-container-width: 90vw;
+    --article-width: 90vw;
+    --form-height: 2.8rem;
+    --background-purple: hsl(259, 72%, 47%);
+    --background-blue: hsl(241, 74.6%, 58.2%);
+    --background-white: hsl(0, 0%, 100%);
+    --background-grey: hsl(210, 33%, 96%);
+    --background-text-purple: hsl(248, 100%, 97%);
+    --text-purple: hsl(259, 71%, 46%);
+    --text-grey: hsl(0, 0%, 48%);
+    --pink: hsl(337, 83%, 60%);
+    --background-gradient: linear-gradient(to right, var(--background-blue), var(--background-purple));
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --content-container-width: 32.8rem;
+        --article-width: 14.7rem;
+        --form-height: 2.15rem;
+    }
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+/* --------------- 2.1 Global typography ------------------- */
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 700;
+}
+
+body, .form-field {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 1.7rem;
+    margin: 50px 0 25px 0;
+}
+
+h2 {
+    font-size: 1rem;
+    padding: 10px;
+}
+
+h2, h4 {
+    color: var(--text-purple);
+}
+
+h3 {
+    font-size: 1.45rem;
+    padding: 5px 0;
+}
+
+h4 {
+    font-size: 1.15rem;
+    padding: 0.5rem 0;
+}
+
+p {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+a:link, a:visited {
+    color: var(--text-purple);
+    text-decoration: none;
+}
+
+::placeholder {
+    font-size: 0.7rem;
+    padding: 10px;
+}
+
+/* --------------- 2.2 Specific typography ------------------- */
+
+#nav-links a:link, #nav-links a:visited, header {
+    color: var(--background-white);
+}
+
+#nav-links a:link, #nav-links a:visited {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+header p {
+    font-size: 1.05rem;
+}
+
+.pink-button {
+    font-size: 0.7rem;
+}
+
+.work-article p, .hello-section p, label {
+    font-weight: 500;
+}
+
+.work-article p {
+    margin: 4rem 0 2.2rem 0;
+}
+
+.work-article h3 {
+    position: relative;
+}
+
+.work-article a:link, .work-article a:visited {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05rem;
+    font-weight: 900;
+}
+
+.services-article p {
+    font-size: 0.763rem;
+    color: var(--text-grey);
+    padding: 10px 0;
+}
+
+form p {
+    padding: 0 0 0.5rem 0;
+}
+
+label {
+    font-size: 0.75rem;
+}
+
+footer p {
+    font-size: 0.65rem;
+}
+
+.hello-section::before, .work-section::before, .services-section::before {
+    font-weight: 700;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+.hello-section::before {
+    font-size: 8rem;
+}
+
+.work-section::before {
+    font-size: 10rem;
+    letter-spacing: -0.8rem;
+}
+
+.services-section::before {
+    font-size: 5.3rem;
+}
+
+.hello-section::before, .services-section::before {
+    color: var(--background-text-purple);
+}
+
+.work-section::before {
+    color: var(--background-white);
+}
+
+/* --------------- 2.3 Larger screen values ------------------- */
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 1.7rem;
+        margin: 15px;
+    }
+
+    h2, h3 {
+        font-size: 1.18rem;
+    }
+
+    h4 {
+        font-size: 0.9rem;
+        padding: 6px 0;
+        font-weight: 900;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    .hello-section::before, .work-section::before {
+        font-size: 20rem;
+    }
+
+    .work-article p {
+        margin: 51px 0 30px 0;
+    }
+
+    .pink-button, .work-article a:link, .work-article a:visited {
+        font-size: 0.55rem;
+    }
+
+    .services-section::before {
+        font-size: 11rem;
+    }
+
+    .services-article p {
+        font-size: 0.63rem;
+    }
+
+    form p {
+        padding: 0;
+    }
+
+    label {
+        font-size: 0.68rem;
+    }
+
+    footer p {
+        font-size: 0.53rem;
+    }
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Basic items ------------------- */
+.content-container {
+    flex-basis: 100%;
+    width: var(--content-container-width);
+    flex-grow: 1;
+    flex-shrink: 0;
+    text-align: center;
+    position: relative;
+}
+
+.pink-button {
+    color: var(--background-white);
+    background-color: var(--pink);
+    min-width: 130px;
+    border: 3px;
+    border-radius: 27px;
+    padding: 16px 27px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px 0.1px hsl(241, 75%, 50%);
+}
+
+/* --------------- 3.2 Floating text ------------------- */
+.hello-section::before, .work-section::before, .services-section::before {
+    display: block;
+    position: absolute;
+    height: 200px;
+    width: 1000px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.work-section::before {
+    top: -3rem;
+}
+
+.services-section::before {
+    top: 4rem;
+}
+
+.hello-section::before {
+    top: 55px;
+}
+
+@media screen and (min-width: 768px) {
+    .hello-section::before {
+        top: 0;
+    }
+
+    .work-section::before, .services-section::before {
+        top: 0;
+    }
+}
+
+/* --------------- 3.3 Bevels (Schuine balken) ------------------- */
+.bevel-top {
+    border-right: 100vw solid transparent;
+    position: absolute;
+    top: -1rem;
+}
+
+.bevel-white {
+    border-bottom: 1rem solid var(--background-white);
+}
+
+.bevel-grey {
+    border-bottom: 1rem solid var(--background-grey);
+}
+
+.bevel-bottom {
+    border-left: 100vw solid transparent;
+    border-top: 1rem solid var(--background-white);
+    position: absolute;
+    bottom: -1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .bevel-top {
+        top: -2rem;
+    }
+
+    .bevel-white {
+        border-bottom: 2rem solid var(--background-white);
+    }
+
+    .bevel-grey {
+        border-bottom: 2rem solid var(--background-grey);
+    }
+
+    .bevel-bottom {
+        border-left: 100vw solid transparent;
+        border-top: 2rem solid var(--background-white);
+        position: absolute;
+        bottom: -2rem;
+    }
+}
+
+/* --------------- 3.4 Z-indexing ------------------- */
+.content-container, .work-container,
+.services-article, header, .pink-button {
+    z-index: 5;
+}
+
+.bevel-top, .bevel-bottom {
+    z-index: 10;
+}
+
+.hello-section::before, .work-section::before, .services-section::before {
+    z-index: 3;
+}
+
+header::before, .contact-form::before {
+    z-index: 1;
+}
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Header ------------------- */
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 100%;
+    width: 100vw;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: flex-end;
+}
+
+nav ul {
+    display: flex;
+    flex-basis: 400px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 0 60px;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-gradient);
+    padding: 20px 20px 45px 20px;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url("assets/noise-texture.png");
+    opacity: 40%;
+}
+
+.header-container {
+    margin: 20px 20px 70px 20px;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 46px;
+    bottom: 0;
+    left: calc(50% - 23px);
+    background-image: url("assets/squiggle_line_stripe.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#header-button {
+    margin: 25px 0 0 0;
+}
+
+@media screen and (min-width: 768px) {
+    #header-button {
+        margin: 20px 0 0 0;
+    }
+}
+
+/* --------------- 4.2 Introduction/Hello ------------- */
+
+.hello-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-white);
+    position: relative;
+}
+
+.hello-container {
+    margin: 120px 0;
+}
+
+#question {
+    padding: 50px 0 0 0;
+}
+
+.hello-section::before {
+    content: "hello";
+}
+
+/* --------------- 4.3 Work ------------- */
+
+.work-section {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-grey);
+    position: relative;
+    padding: 7.5rem 0 2rem 0;
+}
+
+.work-section::before {
+    content: "work";
+    line-height: 345px;
+}
+
+.work-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 40px;
+}
+
+.work-article h3::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 0.5rem;
+    width: 2.8rem;
+    top: 3.35rem;
+    left: 0;
+    background-image: url("assets/squiggle_line.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.work-article, .article-image {
+    width: var(--article-width);
+}
+
+.article-image {
+    margin: 0 0 30px 0;
+    box-shadow: 0 15px 20px -4px hsla(210, 33%, 20%, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+    .work-section {
+        padding: 145px 0 120px 0;
+    }
+
+    .work-container {
+        align-items: center;
+    }
+
+    .article-left {
+        flex-direction: row-reverse;
+    }
+
+    .article-right {
+        flex-direction: row;
+    }
+
+    .article-image {
+        width: 53%;
+        margin: 0 -30px;
+    }
+
+    .work-article h3::after {
+        width: 2.2rem;
+        top: 2.7rem;
+    }
+}
+
+/*Beginstaat lijntje*/
+.line {
+    background-color: transparent;
+    border-top: 0.05rem solid var(--text-purple);
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.2rem;
+    transition: all .35s ease-in-out;
+}
+
+/*Eindstaat lijntje*/
+#link-rolling-stone:hover #line-rolling-stone,
+#link-variety:hover #line-variety,
+#link-worth:hover #line-worth {
+    width: 2.3rem;
+}
+
+/* --------------- 4.4 Services ------------- */
+
+.services-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 7.5rem 0 85px 0;
+}
+
+.services-section::before {
+    content: "services";
+}
+
+.services-article {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 75vw;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: flex-start;
+    border: 1px solid var(--background-purple);
+    background-color: var(--background-white);
+    padding: 1.85rem;
+    margin: 1rem 0.7rem;
+    box-shadow: 0 10px 10px -4px hsla(210, 33%, 20%, 0.2);
+}
+
+.services-icon {
+    width: 3.55rem;
+}
+
+.line-break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .services-section {
+        padding: 140px 0 85px 0;
+    }
+
+    .services-article {
+        margin: 0.7rem;
+        padding: 1.5rem;
+    }
+
+    .services-icon {
+        width: 50px;
+    }
+}
+
+@media screen and (min-width: 787px) {
+    .services-article {
+        flex-basis: 15rem;
+    }
+}
+
+/* --------------- 4.5 Contact form ------------- */
+
+.contact-form {
+    position: relative;
+    display: flex;
+    flex-basis: 100vw;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--background-white);
+    background: var(--background-gradient);
+    padding: 70px 0 40px 0;
+}
+
+.contact-form::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url("assets/noise-texture.png");
+    opacity: 40%;
+}
+
+.form-item {
+    margin: 13px;
+}
+
+.form-field {
+    display: block;
+    width: var(--content-container-width);
+    height: var(--form-height);
+}
+
+#form-message {
+    height: calc(4 * var(--form-height));
+}
+
+#form-message, #form-email, #form-name {
+    border-radius: 2px;
+    border-style: none;
+}
+
+#submit-button {
+    margin: 10px 0 0 0;
+}
+
+@media screen and (min-width: 768px) {
+    .form-field {
+        display: block;
+        width: var(--content-container-width);
+        height: var(--form-height);
+    }
+}
+
+/* --------------- 4.6 Footer ------------- */
+
+footer {
+    display: flex;
+    flex-basis: 100vw;
+    justify-content: center;
+    color: var(--background-white);
+    background-color: black;
+    padding: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        padding: 15px;
+    }
+}
